@@ -11,17 +11,16 @@
     <style>
       :root {
         --bg: #05080a;
-        --bg-2: #0c1113;
-        --panel: rgba(10, 16, 18, 0.78);
-        --panel-2: rgba(15, 22, 24, 0.92);
+        --bg-2: #0c1114;
+        --panel: rgba(12, 17, 20, 0.82);
+        --panel-2: rgba(15, 22, 24, 0.9);
         --line: rgba(138, 159, 151, 0.2);
-        --text: #ebf3ee;
-        --muted: #a3b2ac;
+        --text: #edf4ef;
+        --muted: #a7b7b0;
         --primary: #cbff67;
         --primary-2: #85f8d9;
         --accent: #9af2ff;
-        --shadow: rgba(203, 255, 103, 0.26);
-        --danger: #ff7c7c;
+        --shadow: rgba(203, 255, 103, 0.28);
       }
 
       * { box-sizing: border-box; }
@@ -31,8 +30,8 @@
         font-family: "Inter", sans-serif;
         background:
           radial-gradient(circle at 12% 12%, rgba(133, 248, 217, 0.12), transparent 18%),
-          radial-gradient(circle at 78% 12%, rgba(203, 255, 103, 0.12), transparent 18%),
-          radial-gradient(circle at 58% 55%, rgba(154, 242, 255, 0.08), transparent 22%),
+          radial-gradient(circle at 76% 12%, rgba(203, 255, 103, 0.12), transparent 18%),
+          radial-gradient(circle at 60% 58%, rgba(154, 242, 255, 0.07), transparent 18%),
           linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
         color: var(--text);
         overflow-x: hidden;
@@ -42,104 +41,74 @@
         content: "";
         position: fixed;
         inset: 0;
-        background-image: linear-gradient(rgba(255,255,255,0.017) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.017) 1px, transparent 1px);
-        background-size: 24px 24px;
-        mask-image: radial-gradient(circle at center, black 18%, transparent 92%);
+        background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-size: 26px 26px;
+        mask-image: radial-gradient(circle at center, rgba(0,0,0,0.9), transparent 92%);
         pointer-events: none;
       }
 
       a { color: inherit; text-decoration: none; }
       img { max-width: 100%; display: block; }
 
-      .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
-
       .topbar {
-        position: sticky; top: 0;
-        z-index: 30;
+        position: sticky; top: 0; z-index: 30;
         backdrop-filter: blur(14px);
-        background: rgba(5, 8, 10, 0.72);
+        background: rgba(5, 8, 10, 0.7);
         border-bottom: 1px solid var(--line);
       }
 
       .topbar-inner {
-        max-width: 1200px; margin: 0 auto; padding: 18px 28px;
-        display: flex; align-items: center; justify-content: space-between; gap: 20px;
+        max-width: 1280px; margin: 0 auto; padding: 18px 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
       }
 
       .brand {
-        display: flex; align-items: center; gap: 12px;
-        font-family: "Orbitron", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; font-size: 12px;
+        display: flex; align-items: center; gap: 12px; font-family: "Orbitron", sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
       }
 
       .brand-mark {
-        width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%;
-        display: grid; place-items: center; background: rgba(255,255,255,0.02);
-        box-shadow: inset 0 0 18px rgba(133, 248, 217, 0.15);
+        width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; background: rgba(255,255,255,0.02); box-shadow: inset 0 0 20px rgba(133, 248, 217, 0.15);
       }
 
-      .nav {
-        display: flex; align-items: center; gap: 28px;
-      }
-
+      .nav { display: flex; align-items: center; gap: 28px; }
       .nav a {
-        color: var(--muted); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-        transition: 0.25s ease;
+        color: var(--muted); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.25s ease;
       }
-
       .nav a:hover { color: var(--primary); }
 
       .nav-cta {
-        border: 1px solid var(--line);
-        padding: 10px 14px; border-radius: 999px;
-        color: var(--primary); background: rgba(203, 255, 103, 0.05);
-        font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+        border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; color: var(--primary); background: rgba(203,255,103,0.04); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
       }
 
+      .container { max-width: 1280px; margin: 0 auto; padding: 0 30px; }
+
       .hero {
-        display: grid; grid-template-columns: 1.12fr 0.88fr; align-items: center; gap: 36px;
-        min-height: 80vh; padding: 56px 0 44px;
+        display: grid; grid-template-columns: 1.12fr 0.88fr; align-items: center; gap: 36px; min-height: 82vh; padding: 52px 0 30px;
       }
 
       .eyebrow {
-        display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px;
-        font-family: "Orbitron", sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary);
+        display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; font-family: "Orbitron", sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary);
       }
-
       .eyebrow::before {
-        content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 18px rgba(203, 255, 103, 0.9);
+        content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 18px rgba(203,255,103,0.9);
       }
 
       h1 {
-        margin: 0; font-family: "Orbitron", sans-serif; font-size: clamp(3.4rem, 7vw, 7.1rem);
-        font-weight: 700; line-height: 0.9; letter-spacing: -0.07em; text-transform: uppercase;
+        margin: 0; font-family: "Orbitron", sans-serif; font-size: clamp(3.5rem, 7vw, 7.2rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.07em; text-transform: uppercase;
       }
-
-      h1 .ghost {
-        color: transparent; -webkit-text-stroke: 1px var(--text);
-      }
+      h1 .ghost { color: transparent; -webkit-text-stroke: 1px var(--text); }
 
       .lead {
-        max-width: 650px; margin: 26px 0 30px; color: var(--muted); font-size: 1.08rem; line-height: 1.8;
+        max-width: 640px; margin: 26px 0 30px; color: var(--muted); font-size: 1.08rem; line-height: 1.8;
       }
 
-      .actions {
-        display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
-      }
-
+      .actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
       .button {
-        display: inline-flex; align-items: center; gap: 10px; padding: 15px 22px;
-        border-radius: 999px; border: 1px solid var(--line); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: inline-flex; align-items: center; gap: 10px; padding: 16px 22px; border-radius: 999px; border: 1px solid var(--line); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
-
       .button.primary {
-        background: linear-gradient(135deg, var(--primary), #e6ffab); color: #0f120d; box-shadow: 0 20px 35px rgba(203, 255, 103, 0.15);
+        background: linear-gradient(135deg, var(--primary), #ebffb7); color: #0f120d; box-shadow: 0 20px 35px rgba(203,255,103,0.15);
       }
-
-      .button.secondary {
-        background: rgba(255,255,255,0.025); color: var(--text);
-      }
-
+      .button.secondary { background: rgba(255,255,255,0.025); color: var(--text); }
       .button:hover { transform: translateY(-2px); }
 
       .visual {
@@ -147,31 +116,22 @@
       }
 
       .ring {
-        position: absolute; border-radius: 50%; border: 1px solid rgba(154, 242, 255, 0.2);
+        position: absolute; border-radius: 50%; border: 1px solid rgba(154,242,255,0.2);
       }
-
       .ring.one { width: 430px; height: 180px; transform: rotate(-18deg); }
-      .ring.two { width: 500px; height: 300px; transform: rotate(28deg); border-color: rgba(203, 255, 103, 0.2); }
+      .ring.two { width: 500px; height: 300px; transform: rotate(28deg); border-color: rgba(203,255,103,0.2); }
       .ring.three { width: 330px; height: 500px; transform: rotate(60deg); }
 
       .core {
-        width: 230px; height: 230px; border-radius: 50%; position: relative; display: grid; place-items: center;
-        background: radial-gradient(circle at 30% 26%, #2d4a46 0%, #111b1b 48%, #06090a 100%);
-        border: 1px solid rgba(203, 255, 103, 0.2); box-shadow: 0 0 30px rgba(203, 255, 103, 0.12), inset 0 0 20px rgba(133, 248, 217, 0.18);
+        width: 230px; height: 230px; border-radius: 50%; position: relative; display: grid; place-items: center; background: radial-gradient(circle at 30% 26%, #2d4b4d 0%, #111b1d 48%, #06090a 100%); border: 1px solid rgba(203,255,103,0.2); box-shadow: 0 0 30px rgba(203,255,103,0.12), inset 0 0 20px rgba(133,248,217,0.18);
       }
-
-      .core::before, .core::after {
-        content: ""; position: absolute; inset: 16px; border: 1px solid rgba(154, 242, 255, 0.18); border-radius: 50%;
-      }
-
-      .core::after { inset: 36px; border-color: rgba(203, 255, 103, 0.22); }
-
-      .alien { font-size: 80px; filter: drop-shadow(0 0 18px rgba(203, 255, 103, 0.7)); }
+      .core::before, .core::after { content: ""; position: absolute; inset: 16px; border-radius: 50%; border: 1px solid rgba(154,242,255,0.18); }
+      .core::after { inset: 36px; border-color: rgba(203,255,103,0.22); }
+      .alien { font-size: 80px; filter: drop-shadow(0 0 18px rgba(203,255,103,0.7)); }
 
       .label {
         position: absolute; font-family: "Orbitron", sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
       }
-
       .label.a { top: 14%; right: 8%; }
       .label.b { bottom: 14%; left: 8%; color: var(--primary); }
 
@@ -180,7 +140,7 @@
       }
 
       .section-inner {
-        max-width: 1200px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: 180px 1fr; gap: 30px;
+        max-width: 1280px; margin: 0 auto; padding: 0 30px; display: grid; grid-template-columns: 180px 1fr; gap: 32px;
       }
 
       .section-tag {
@@ -192,165 +152,92 @@
       }
 
       h2 {
-        margin: 0 0 16px; font-family: "Orbitron", sans-serif; font-size: clamp(2.7rem, 5vw, 5rem); letter-spacing: -0.07em; line-height: 0.96; text-transform: uppercase;
+        margin: 0 0 16px; font-family: "Orbitron", sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: -0.07em; line-height: 0.96; text-transform: uppercase;
       }
-
       h2 .ghost { color: transparent; -webkit-text-stroke: 1px var(--text); }
 
-      .identity {
-        font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
-      }
-
-      .role {
-        margin: 18px 0 28px; font-size: 0.96rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text);
-      }
-
-      .bio {
-        margin: 0; max-width: 640px; color: var(--muted); font-size: 1.08rem; line-height: 1.8;
-      }
+      .identity { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+      .role { margin: 18px 0 28px; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); }
+      .bio { margin: 0; max-width: 640px; color: var(--muted); font-size: 1.08rem; line-height: 1.8; }
 
       .card {
-        background: rgba(14, 21, 23, 0.8); border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: 0 22px 32px rgba(0,0,0,0.2);
+        background: rgba(14,21,23,0.8); border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: 0 22px 32px rgba(0,0,0,0.2);
       }
-
       .card-top {
-        display: flex; justify-content: space-between; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
-        color: var(--muted); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+        display: flex; justify-content: space-between; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
       }
-
       .badge {
         margin: 26px 0 8px; font-family: "Orbitron", sans-serif; font-weight: 800; font-size: 92px; letter-spacing: -0.08em; line-height: 1; color: var(--primary);
       }
-
-      .card-title {
-        margin-bottom: 16px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text);
-      }
-
-      .card-list {
-        display: grid; gap: 9px; color: var(--muted); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.8;
-      }
-
+      .card-title { margin-bottom: 16px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); }
+      .card-list { display: grid; gap: 9px; color: var(--muted); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.8; }
       .card-foot {
-        margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 10px;
-        color: var(--muted); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+        margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
       }
-
       .card-foot strong { color: var(--primary); }
 
-      .directive-wrap {
-        display: grid; gap: 30px;
-      }
-
+      .directive-wrap { display: grid; gap: 30px; }
       .formula {
-        display: flex; align-items: center; flex-wrap: wrap; gap: 14px; font-family: "Orbitron", sans-serif; font-size: clamp(1.6rem, 3vw, 3.2rem); text-transform: uppercase; letter-spacing: -0.05em;
+        display: flex; align-items: center; flex-wrap: wrap; gap: 14px; font-family: "Orbitron", sans-serif; font-size: clamp(1.5rem, 2.8vw, 3rem); text-transform: uppercase; letter-spacing: -0.05em;
       }
-
       .formula i { font-style: normal; color: var(--primary); }
 
-      .principles {
-        display: grid; grid-template-columns: repeat(2, minmax(220px, 1fr)); gap: 0; border-top: 1px solid var(--line);
-      }
-
+      .principles { display: grid; grid-template-columns: repeat(2, minmax(220px, 1fr)); gap: 0; border-top: 1px solid var(--line); }
       .principle {
         display: flex; gap: 18px; padding: 26px 0; border-bottom: 1px solid var(--line);
       }
-
       .principle span {
         font-family: "Orbitron", sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--primary); min-width: 30px;
       }
-
       .principle p { margin: 0; color: var(--muted); line-height: 1.7; }
 
-      .metrics {
-        display: grid; grid-template-columns: repeat(4, minmax(150px, 1fr)); gap: 18px;
-      }
-
+      .metrics { display: grid; grid-template-columns: repeat(4, minmax(150px,1fr)); gap: 18px; }
       .metric {
         border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,0.015); padding: 22px 18px;
       }
-
       .metric-value {
         font-family: "Orbitron", sans-serif; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: -0.06em; color: var(--primary); margin-bottom: 8px;
       }
+      .metric-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 
-      .metric-label {
-        font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
-      }
-
-      .skills-box {
-        display: grid; gap: 26px;
-      }
-
-      .skill-header {
-        display: flex; justify-content: space-between; align-items: end; gap: 16px;
-      }
-
-      .score {
-        font-family: "Orbitron", sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: -0.08em;
-      }
-
-      .score small {
-        font-size: 0.32em; color: var(--muted); letter-spacing: 0;
-      }
-
-      .meter {
-        height: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); border-radius: 999px; overflow: hidden;
-      }
-
-      .meter > span {
-        display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-2)); box-shadow: 0 0 18px rgba(203,255,103,0.5);
-      }
-
-      .tags {
-        display: flex; flex-wrap: wrap; gap: 12px;
-      }
-
+      .skills-box { display: grid; gap: 26px; }
+      .skill-header { display: flex; justify-content: space-between; align-items: end; gap: 16px; }
+      .score { font-family: "Orbitron", sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: -0.08em; }
+      .score small { font-size: 0.32em; color: var(--muted); letter-spacing: 0; }
+      .meter { height: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+      .meter > span { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-2)); box-shadow: 0 0 18px rgba(203,255,103,0.5); }
+      .tags { display: flex; flex-wrap: wrap; gap: 12px; }
       .tags span {
         padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.02); color: var(--muted); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
       }
 
-      .timeline {
-        display: grid; gap: 18px;
+      .portfolio-grid {
+        display: grid; grid-template-columns: repeat(3, minmax(220px,1fr)); gap: 22px;
       }
-
-      .timeline-item {
-        display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line);
+      .project {
+        position: relative; overflow: hidden; background: rgba(14,21,23,0.8); border: 1px solid var(--line); border-radius: 18px; padding: 22px; min-height: 260px; box-shadow: 0 18px 30px rgba(0,0,0,0.18);
       }
-
-      .timeline-item .date {
-        font-family: "Orbitron", sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary);
+      .project::before {
+        content: ""; position: absolute; inset: auto -15% -40% 30%; height: 140px; background: radial-gradient(circle, rgba(203,255,103,0.18), transparent 60%); filter: blur(12px);
       }
+      .project-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); }
+      .project h3 { margin: 18px 0 10px; font-family: "Orbitron", sans-serif; font-size: 1.25rem; line-height: 1.2; letter-spacing: -0.04em; }
+      .project p { margin: 0; color: var(--muted); line-height: 1.7; }
+      .project ul { margin: 18px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.8; }
 
-      .timeline-item h3 {
-        margin: 0 0 6px; font-size: 1.05rem; letter-spacing: -0.04em; text-transform: uppercase;
-      }
+      .contact-box { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 22px; }
+      .contact-box h2 { margin: 0; }
 
-      .timeline-item p {
-        margin: 0; color: var(--muted); line-height: 1.7;
-      }
-
-      .contact-box {
-        display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 22px;
-      }
-
-      .contact-box h2 {
-        margin: 0;
-      }
-
-      footer {
-        border-top: 1px solid var(--line); margin-top: 18px;
-      }
-
+      footer { border-top: 1px solid var(--line); margin-top: 18px; }
       .footer-inner {
-        max-width: 1200px; margin: 0 auto; padding: 24px 28px 52px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+        max-width: 1280px; margin: 0 auto; padding: 24px 30px 52px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
       }
-
       .footer-inner strong { color: var(--primary); }
 
       @media (max-width: 900px) {
         .nav { display: none; }
         .hero, .profile-grid, .section-inner { grid-template-columns: 1fr; }
-        .metrics { grid-template-columns: repeat(2, minmax(150px, 1fr)); }
+        .metrics, .portfolio-grid { grid-template-columns: repeat(2, minmax(160px,1fr)); }
         .visual { min-height: 420px; }
         .ring.one { width: 300px; height: 140px; }
         .ring.two { width: 360px; height: 220px; }
@@ -358,7 +245,10 @@
         .core { width: 170px; height: 170px; }
         .alien { font-size: 58px; }
         .principles { grid-template-columns: 1fr; }
-        .timeline-item { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 620px) {
+        .portfolio-grid, .metrics { grid-template-columns: 1fr; }
       }
     </style>
   </head>
@@ -372,7 +262,7 @@
         <nav class="nav" aria-label="Main navigation">
           <a href="#about">Profile</a>
           <a href="#directive">Directive</a>
-          <a href="#signals">Signals</a>
+          <a href="#showcase">Showcase</a>
           <a href="#contact">Transmit</a>
         </nav>
         <a class="nav-cta" href="#contact">Contact</a>
@@ -385,8 +275,7 @@
           <div class="eyebrow">System online / ID: HZ-01</div>
           <h1>Build<br><span class="ghost">Beyond</span><br>the horizon.</h1>
           <p class="lead">
-            A command center for ideas that refuse to remain theoretical. I turn pressure into architecture,
-            architecture into motion, and motion into resilient systems that outperform assumptions.
+            I turn pressure into architecture, architecture into motion, and motion into resilient systems that outperform assumptions. This is the operating logic behind the Alien Event Horizon mission.
           </p>
           <div class="actions">
             <a class="button primary" href="#about">Enter the system <span>→</span></a>
@@ -413,14 +302,13 @@
               <h2>Huzaifa<br><span class="ghost">Abubakar</span></h2>
               <div class="role">Founder & Architect of <strong style="color: var(--primary);">Alien 👽 Event Horizon</strong></div>
               <p class="bio">
-                I build complex systems from concept to working structure. I define the direction, challenge the design,
-                expose weaknesses, test the system under pressure, and continuously refine what I create.
+                I build complex systems from concept to working structure. I define the direction, challenge the design, expose weaknesses, test the system under pressure, and continuously refine what I create.
               </p>
             </div>
 
             <aside class="card" aria-label="Command profile">
               <div class="card-top">
-                <span>Command Profile</span>
+                <span>Command profile</span>
                 <span>01—04</span>
               </div>
               <div class="badge">H</div>
@@ -464,27 +352,67 @@
           <div class="metrics">
             <div class="metric">
               <div class="metric-value">100</div>
-              <div class="metric-label">Directive Focus</div>
+              <div class="metric-label">Directive focus</div>
             </div>
             <div class="metric">
               <div class="metric-value">24/7</div>
-              <div class="metric-label">System Pressure</div>
+              <div class="metric-label">System pressure</div>
             </div>
             <div class="metric">
               <div class="metric-value">∞</div>
-              <div class="metric-label">Evolution Loop</div>
+              <div class="metric-label">Evolution loop</div>
             </div>
             <div class="metric">
               <div class="metric-value">01</div>
-              <div class="metric-label">Mission Priority</div>
+              <div class="metric-label">Mission priority</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="signals">
+      <section id="showcase" class="section">
         <div class="section-inner">
-          <div class="section-tag">04 / Signals</div>
+          <div class="section-tag">04 / Showcase</div>
+          <div class="portfolio-grid">
+            <article class="project">
+              <div class="project-tag">01 / Strategic Build</div>
+              <h3>System Architecture</h3>
+              <p>Mapping the structure, reducing complexity, and turning ambiguity into scalable operational flow.</p>
+              <ul>
+                <li>Objective alignment</li>
+                <li>Process design</li>
+                <li>Operational clarity</li>
+              </ul>
+            </article>
+
+            <article class="project">
+              <div class="project-tag">02 / Red-Team</div>
+              <h3>Pressure Testing</h3>
+              <p>Finding the weak points before they become visible under pressure, stress, and real-world accountability.</p>
+              <ul>
+                <li>Breakpoints exposed</li>
+                <li>Risk isolation</li>
+                <li>Resilience tuning</li>
+              </ul>
+            </article>
+
+            <article class="project">
+              <div class="project-tag">03 / Evolution</div>
+              <h3>Refinement Engine</h3>
+              <p>Iterating beyond the first version, transforming feedback into stronger systems and sharper results.</p>
+              <ul>
+                <li>Continuous review</li>
+                <li>Better execution</li>
+                <li>Clearer direction</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-tag">05 / Signals</div>
           <div class="skills-box">
             <div class="skill-header">
               <div class="eyebrow" style="margin:0;">Directive skills</div>
@@ -504,34 +432,34 @@
 
       <section class="section">
         <div class="section-inner">
-          <div class="section-tag">05 / Timeline</div>
+          <div class="section-tag">06 / Timeline</div>
           <div class="timeline">
             <div class="timeline-item">
               <div class="date">01 / Vision</div>
               <div>
                 <h3>Design the system</h3>
-                <p>Define the objective, identify the fault lines, and architect the structure before the first move is made.</p>
+                <p>Define the objective, identify fault lines, and architect the structure before the first move is made.</p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="date">02 / Direction</div>
               <div>
                 <h3>Direct the signal</h3>
-                <p>Set the alignment, sharpen the intent, and ensure the mission remains clear under pressure and uncertainty.</p>
+                <p>Set the alignment, sharpen the intent, and keep the mission clear under uncertainty and pressure.</p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="date">03 / Test</div>
               <div>
                 <h3>Expose the weaknesses</h3>
-                <p>Stress the framework, confront failure points, and isolate what really holds under real conditions.</p>
+                <p>Stress the framework, confront failure points, and isolate what holds under real conditions.</p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="date">04 / Evolve</div>
               <div>
                 <h3>Refine and advance</h3>
-                <p>Turn the lessons into better systems, stronger structures, and more resilient outcomes.</p>
+                <p>Turn lessons into stronger systems, sharpened execution, and better outcomes.</p>
               </div>
             </div>
           </div>
@@ -540,7 +468,7 @@
 
       <section id="contact" class="section">
         <div class="section-inner">
-          <div class="section-tag">06 / Signal</div>
+          <div class="section-tag">07 / Signal</div>
           <div class="contact-box">
             <div>
               <div class="eyebrow" style="margin-bottom:18px;">Open channel</div>
@@ -564,7 +492,7 @@
       let angle = 0;
       setInterval(() => {
         angle += 0.18;
-        ring.style.transform = `rotate(${28 + angle}deg)`;
+        if (ring) ring.style.transform = `rotate(${28 + angle}deg)`;
       }, 22);
     </script>
   </body>
