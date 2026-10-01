@@ -1,21 +1,39 @@
-# Alien Event Horizon — Personal Website
+# Alien Event Horizon Personal Website
 
-A futuristic personal command center for **Huzaifa Abubakar**, Founder & Architect of Alien Event Horizon.
+This repo contains an advanced single-file personal portfolio for Huzaifa Abubakar, featuring an alien-tech aesthetic, profile presentation, portfolio showcase, directive messaging, and a contact form.
 
-## Included
-
-- Responsive, cinematic alien/event-horizon visual system
-- Huzaifa's profile, bio, operating principle, and directive skills
-- Interactive light/dark visual mode
-- Accessible navigation and responsive mobile layout
-- Zero-dependency HTML, CSS, and JavaScript
+## Included features
+- Premium alien-inspired cinematic design
+- Hero section with orbital visual
+- Profile and identity section
+- Operating principle and skill metrics
+- Portfolio showcase cards
+- Timeline and capability content
+- Social buttons and contact form
+- Mobile-responsive layout
+- Self-contained HTML, CSS, and JavaScript
 
 ## Run locally
-
-Open `index.html` in a browser, or serve the directory with any static server:
+Open `index.html` directly in a browser, or serve it locally:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Then visit:
+
+```text
+http://localhost:8000
+```
+
+## Deploy
+This is already ready to deploy to:
+- GitHub Pages
+- Netlify
+- Vercel
+
+For GitHub Pages, push the repository and enable Pages from the main branch.
+
+## Contact
+Email: hello@alieneventhorizon.com
+GitHub: https://github.com/Khuxaeper1105

@@ -11,16 +11,16 @@
     <style>
       :root {
         --bg: #05080a;
-        --bg-2: #0c1114;
-        --panel: rgba(12, 17, 20, 0.82);
-        --panel-2: rgba(15, 22, 24, 0.9);
-        --line: rgba(138, 159, 151, 0.2);
+        --bg-2: #0b1114;
+        --panel: rgba(12, 18, 20, 0.76);
+        --panel-2: rgba(17, 23, 25, 0.9);
+        --line: rgba(142, 170, 160, 0.18);
         --text: #edf4ef;
-        --muted: #a7b7b0;
+        --muted: #abb9b2;
         --primary: #cbff67;
-        --primary-2: #85f8d9;
+        --primary-2: #82f7d4;
         --accent: #9af2ff;
-        --shadow: rgba(203, 255, 103, 0.28);
+        --shadow: rgba(203, 255, 103, 0.24);
       }
 
       * { box-sizing: border-box; }
@@ -29,9 +29,9 @@
         margin: 0;
         font-family: "Inter", sans-serif;
         background:
-          radial-gradient(circle at 12% 12%, rgba(133, 248, 217, 0.12), transparent 18%),
-          radial-gradient(circle at 76% 12%, rgba(203, 255, 103, 0.12), transparent 18%),
-          radial-gradient(circle at 60% 58%, rgba(154, 242, 255, 0.07), transparent 18%),
+          radial-gradient(circle at 12% 12%, rgba(130, 247, 212, 0.12), transparent 18%),
+          radial-gradient(circle at 84% 14%, rgba(203, 255, 103, 0.12), transparent 18%),
+          radial-gradient(circle at 60% 60%, rgba(154, 242, 255, 0.06), transparent 18%),
           linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
         color: var(--text);
         overflow-x: hidden;
@@ -41,35 +41,56 @@
         content: "";
         position: fixed;
         inset: 0;
-        background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-image: linear-gradient(rgba(255,255,255,0.014) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px);
         background-size: 26px 26px;
-        mask-image: radial-gradient(circle at center, rgba(0,0,0,0.9), transparent 92%);
+        mask-image: radial-gradient(circle at center, rgba(0,0,0,0.9) 13%, transparent 95%);
         pointer-events: none;
       }
 
       a { color: inherit; text-decoration: none; }
       img { max-width: 100%; display: block; }
+      section { scroll-margin-top: 96px; }
 
       .topbar {
-        position: sticky; top: 0; z-index: 30;
+        position: sticky;
+        top: 0;
+        z-index: 40;
         backdrop-filter: blur(14px);
-        background: rgba(5, 8, 10, 0.7);
+        background: rgba(5, 8, 10, 0.74);
         border-bottom: 1px solid var(--line);
       }
 
+      .topbar-inner, .container, .section-inner, .footer-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
       .topbar-inner {
-        max-width: 1280px; margin: 0 auto; padding: 18px 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
       }
 
       .brand {
-        display: flex; align-items: center; gap: 12px; font-family: "Orbitron", sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Orbitron", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
       }
 
       .brand-mark {
-        width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; background: rgba(255,255,255,0.02); box-shadow: inset 0 0 20px rgba(133, 248, 217, 0.15);
+        width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,0.02); box-shadow: inset 0 0 18px rgba(130, 247, 212, 0.15);
       }
 
-      .nav { display: flex; align-items: center; gap: 28px; }
+      .nav { display: flex; align-items: center; gap: 26px; }
       .nav a {
         color: var(--muted); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.25s ease;
       }
@@ -79,51 +100,56 @@
         border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; color: var(--primary); background: rgba(203,255,103,0.04); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
       }
 
-      .container { max-width: 1280px; margin: 0 auto; padding: 0 30px; }
-
       .hero {
-        display: grid; grid-template-columns: 1.12fr 0.88fr; align-items: center; gap: 36px; min-height: 82vh; padding: 52px 0 30px;
+        display: grid;
+        grid-template-columns: 1.14fr 0.86fr;
+        align-items: center;
+        gap: 34px;
+        min-height: 82vh;
+        padding-top: 52px;
+        padding-bottom: 36px;
       }
 
       .eyebrow {
-        display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; font-family: "Orbitron", sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary);
+        display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; font-family: "Orbitron", sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary);
       }
       .eyebrow::before {
         content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 18px rgba(203,255,103,0.9);
       }
 
       h1 {
-        margin: 0; font-family: "Orbitron", sans-serif; font-size: clamp(3.5rem, 7vw, 7.2rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.07em; text-transform: uppercase;
+        margin: 0; font-family: "Orbitron", sans-serif; font-size: clamp(3.5rem, 7vw, 7.2rem); line-height: 0.9; letter-spacing: -0.07em; text-transform: uppercase;
       }
       h1 .ghost { color: transparent; -webkit-text-stroke: 1px var(--text); }
 
       .lead {
-        max-width: 640px; margin: 26px 0 30px; color: var(--muted); font-size: 1.08rem; line-height: 1.8;
+        max-width: 650px; margin: 26px 0 30px; color: var(--muted); font-size: 1.08rem; line-height: 1.8;
       }
 
       .actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
       .button {
-        display: inline-flex; align-items: center; gap: 10px; padding: 16px 22px; border-radius: 999px; border: 1px solid var(--line); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 22px; border-radius: 999px; border: 1px solid var(--line); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
       .button.primary {
         background: linear-gradient(135deg, var(--primary), #ebffb7); color: #0f120d; box-shadow: 0 20px 35px rgba(203,255,103,0.15);
       }
-      .button.secondary { background: rgba(255,255,255,0.025); color: var(--text); }
+      .button.secondary {
+        background: rgba(255,255,255,0.025); color: var(--text);
+      }
       .button:hover { transform: translateY(-2px); }
 
       .visual {
         position: relative; min-height: 560px; display: grid; place-items: center;
       }
-
       .ring {
-        position: absolute; border-radius: 50%; border: 1px solid rgba(154,242,255,0.2);
+        position: absolute; border-radius: 50%; border: 1px solid rgba(154,242,255,0.22);
       }
       .ring.one { width: 430px; height: 180px; transform: rotate(-18deg); }
-      .ring.two { width: 500px; height: 300px; transform: rotate(28deg); border-color: rgba(203,255,103,0.2); }
+      .ring.two { width: 500px; height: 300px; transform: rotate(28deg); border-color: rgba(203,255,103,0.22); }
       .ring.three { width: 330px; height: 500px; transform: rotate(60deg); }
 
       .core {
-        width: 230px; height: 230px; border-radius: 50%; position: relative; display: grid; place-items: center; background: radial-gradient(circle at 30% 26%, #2d4b4d 0%, #111b1d 48%, #06090a 100%); border: 1px solid rgba(203,255,103,0.2); box-shadow: 0 0 30px rgba(203,255,103,0.12), inset 0 0 20px rgba(133,248,217,0.18);
+        width: 230px; height: 230px; border-radius: 50%; position: relative; display: grid; place-items: center; background: radial-gradient(circle at 30% 26%, #2d4b4d 0%, #111b1d 48%, #06090a 100%); border: 1px solid rgba(203,255,103,0.2); box-shadow: 0 0 30px rgba(203,255,103,0.12), inset 0 0 20px rgba(130, 247, 212, 0.18);
       }
       .core::before, .core::after { content: ""; position: absolute; inset: 16px; border-radius: 50%; border: 1px solid rgba(154,242,255,0.18); }
       .core::after { inset: 36px; border-color: rgba(203,255,103,0.22); }
@@ -138,24 +164,19 @@
       .section {
         padding: 100px 0; border-top: 1px solid var(--line);
       }
-
       .section-inner {
-        max-width: 1280px; margin: 0 auto; padding: 0 30px; display: grid; grid-template-columns: 180px 1fr; gap: 32px;
+        display: grid; grid-template-columns: 180px 1fr; gap: 32px;
       }
 
       .section-tag {
         font-family: "Orbitron", sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); padding-top: 12px;
       }
 
-      .profile-grid {
-        display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: start;
-      }
-
+      .profile-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: start; }
       h2 {
         margin: 0 0 16px; font-family: "Orbitron", sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: -0.07em; line-height: 0.96; text-transform: uppercase;
       }
       h2 .ghost { color: transparent; -webkit-text-stroke: 1px var(--text); }
-
       .identity { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
       .role { margin: 18px 0 28px; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); }
       .bio { margin: 0; max-width: 640px; color: var(--muted); font-size: 1.08rem; line-height: 1.8; }
@@ -182,62 +203,84 @@
       }
       .formula i { font-style: normal; color: var(--primary); }
 
-      .principles { display: grid; grid-template-columns: repeat(2, minmax(220px, 1fr)); gap: 0; border-top: 1px solid var(--line); }
-      .principle {
-        display: flex; gap: 18px; padding: 26px 0; border-bottom: 1px solid var(--line);
-      }
-      .principle span {
-        font-family: "Orbitron", sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--primary); min-width: 30px;
-      }
+      .principles { display: grid; grid-template-columns: repeat(2, minmax(220px,1fr)); gap: 0; border-top: 1px solid var(--line); }
+      .principle { display: flex; gap: 18px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+      .principle span { font-family: "Orbitron", sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--primary); min-width: 30px; }
       .principle p { margin: 0; color: var(--muted); line-height: 1.7; }
 
       .metrics { display: grid; grid-template-columns: repeat(4, minmax(150px,1fr)); gap: 18px; }
-      .metric {
-        border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,0.015); padding: 22px 18px;
-      }
-      .metric-value {
-        font-family: "Orbitron", sans-serif; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: -0.06em; color: var(--primary); margin-bottom: 8px;
-      }
+      .metric { border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,0.015); padding: 22px 18px; }
+      .metric-value { font-family: "Orbitron", sans-serif; font-size: clamp(2rem,3vw,3rem); letter-spacing: -0.06em; color: var(--primary); margin-bottom: 8px; }
       .metric-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 
       .skills-box { display: grid; gap: 26px; }
       .skill-header { display: flex; justify-content: space-between; align-items: end; gap: 16px; }
-      .score { font-family: "Orbitron", sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: -0.08em; }
+      .score { font-family: "Orbitron", sans-serif; font-size: clamp(2.8rem,5vw,5rem); letter-spacing: -0.08em; }
       .score small { font-size: 0.32em; color: var(--muted); letter-spacing: 0; }
       .meter { height: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
       .meter > span { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-2)); box-shadow: 0 0 18px rgba(203,255,103,0.5); }
       .tags { display: flex; flex-wrap: wrap; gap: 12px; }
-      .tags span {
-        padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.02); color: var(--muted); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      }
+      .tags span { padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.02); color: var(--muted); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
 
-      .portfolio-grid {
-        display: grid; grid-template-columns: repeat(3, minmax(220px,1fr)); gap: 22px;
-      }
+      .portfolio-grid { display: grid; grid-template-columns: repeat(3,minmax(220px,1fr)); gap: 22px; }
       .project {
         position: relative; overflow: hidden; background: rgba(14,21,23,0.8); border: 1px solid var(--line); border-radius: 18px; padding: 22px; min-height: 260px; box-shadow: 0 18px 30px rgba(0,0,0,0.18);
       }
       .project::before {
-        content: ""; position: absolute; inset: auto -15% -40% 30%; height: 140px; background: radial-gradient(circle, rgba(203,255,103,0.18), transparent 60%); filter: blur(12px);
+        content: ""; position: absolute; inset: auto -15% -42% 30%; height: 140px; background: radial-gradient(circle, rgba(203,255,103,0.18), transparent 60%); filter: blur(12px);
       }
       .project-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); }
       .project h3 { margin: 18px 0 10px; font-family: "Orbitron", sans-serif; font-size: 1.25rem; line-height: 1.2; letter-spacing: -0.04em; }
-      .project p { margin: 0; color: var(--muted); line-height: 1.7; }
-      .project ul { margin: 18px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.8; }
+      .project p, .project li { color: var(--muted); line-height: 1.7; }
+      .project ul { margin: 18px 0 0; padding-left: 18px; }
 
-      .contact-box { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 22px; }
+      .timeline { display: grid; gap: 18px; }
+      .timeline-item { display: grid; grid-template-columns: 140px 1fr; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+      .timeline-item .date { font-family: "Orbitron", sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); }
+      .timeline-item h3 { margin: 0 0 6px; font-size: 1.05rem; letter-spacing: -0.04em; text-transform: uppercase; }
+      .timeline-item p { margin: 0; color: var(--muted); line-height: 1.7; }
+
+      .contact-shell {
+        display: grid; grid-template-columns: 1.05fr 1.25fr; gap: 28px; align-items: start;
+      }
+      .contact-box {
+        display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 22px;
+      }
       .contact-box h2 { margin: 0; }
+
+      form {
+        display: grid; gap: 18px; background: rgba(14,21,23,0.76); border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: 0 18px 30px rgba(0,0,0,0.16);
+      }
+      .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+      label {
+        display: grid; gap: 8px; color: var(--muted); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      }
+      input, textarea, select {
+        width: 100%; border: 1px solid var(--line); background: rgba(255,255,255,0.02); color: var(--text); border-radius: 12px; padding: 14px 14px; font: inherit;
+      }
+      textarea { min-height: 140px; resize: vertical; }
+      input:focus, textarea:focus, select:focus { outline: 1px solid rgba(203,255,103,0.4); }
+      .form-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+      .success {
+        display: none; color: var(--primary); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin-left: 12px;
+      }
+      .success.show { display: inline-block; }
+
+      .socials { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+      .socials a {
+        display: inline-flex; align-items: center; justify-content: center; min-width: 160px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: rgba(255,255,255,0.02); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      }
 
       footer { border-top: 1px solid var(--line); margin-top: 18px; }
       .footer-inner {
-        max-width: 1280px; margin: 0 auto; padding: 24px 30px 52px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+        padding-top: 24px; padding-bottom: 52px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
       }
       .footer-inner strong { color: var(--primary); }
 
       @media (max-width: 900px) {
         .nav { display: none; }
-        .hero, .profile-grid, .section-inner { grid-template-columns: 1fr; }
-        .metrics, .portfolio-grid { grid-template-columns: repeat(2, minmax(160px,1fr)); }
+        .hero, .profile-grid, .section-inner, .contact-shell { grid-template-columns: 1fr; }
+        .metrics, .portfolio-grid { grid-template-columns: repeat(2,minmax(160px,1fr)); }
         .visual { min-height: 420px; }
         .ring.one { width: 300px; height: 140px; }
         .ring.two { width: 360px; height: 220px; }
@@ -245,10 +288,13 @@
         .core { width: 170px; height: 170px; }
         .alien { font-size: 58px; }
         .principles { grid-template-columns: 1fr; }
+        .timeline-item { grid-template-columns: 1fr; }
+        .field-row { grid-template-columns: 1fr; }
       }
 
       @media (max-width: 620px) {
-        .portfolio-grid, .metrics { grid-template-columns: 1fr; }
+        .metrics, .portfolio-grid { grid-template-columns: 1fr; }
+        .topbar-inner, .container, .section-inner, .footer-inner { padding-left: 20px; padding-right: 20px; }
       }
     </style>
   </head>
@@ -279,7 +325,8 @@
           </p>
           <div class="actions">
             <a class="button primary" href="#about">Enter the system <span>→</span></a>
-            <a class="button secondary" href="#directive">Read directive</a>
+            <a class="button secondary" href="#showcase">View projects</a>
+            <a class="button secondary" href="mailto:hello@alieneventhorizon.com">Email me</a>
           </div>
         </div>
 
@@ -304,6 +351,11 @@
               <p class="bio">
                 I build complex systems from concept to working structure. I define the direction, challenge the design, expose weaknesses, test the system under pressure, and continuously refine what I create.
               </p>
+              <div class="socials" aria-label="Social links">
+                <a href="https://github.com/Khuxaeper1105" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="mailto:hello@alieneventhorizon.com">Email</a>
+                <a href="#contact">WhatsApp</a>
+              </div>
             </div>
 
             <aside class="card" aria-label="Command profile">
@@ -388,7 +440,7 @@
             <article class="project">
               <div class="project-tag">02 / Red-Team</div>
               <h3>Pressure Testing</h3>
-              <p>Finding the weak points before they become visible under pressure, stress, and real-world accountability.</p>
+              <p>Finding the weak points before they become visible under pressure and real-world accountability.</p>
               <ul>
                 <li>Breakpoints exposed</li>
                 <li>Risk isolation</li>
@@ -469,12 +521,65 @@
       <section id="contact" class="section">
         <div class="section-inner">
           <div class="section-tag">07 / Signal</div>
-          <div class="contact-box">
+          <div class="contact-shell">
             <div>
-              <div class="eyebrow" style="margin-bottom:18px;">Open channel</div>
-              <h2>Have a system<br><span class="ghost">to build?</span></h2>
+              <div class="contact-box">
+                <div>
+                  <div class="eyebrow" style="margin-bottom:18px;">Open channel</div>
+                  <h2>Have a system<br><span class="ghost">to build?</span></h2>
+                </div>
+              </div>
+              <div class="socials">
+                <a href="https://github.com/Khuxaeper1105" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="mailto:hello@alieneventhorizon.com">Email</a>
+                <a href="https://wa.me/2340000000000" target="_blank" rel="noreferrer">WhatsApp</a>
+              </div>
             </div>
-            <a class="button primary" href="mailto:hello@alieneventhorizon.com">Transmit a signal →</a>
+
+            <form id="contactForm">
+              <div class="field-row">
+                <label>
+                  Full name
+                  <input type="text" name="name" placeholder="Your name" required />
+                </label>
+                <label>
+                  Email address
+                  <input type="email" name="email" placeholder="you@example.com" required />
+                </label>
+              </div>
+
+              <div class="field-row">
+                <label>
+                  Project type
+                  <select name="type">
+                    <option>System Architecture</option>
+                    <option>Strategy & Direction</option>
+                    <option>Critical Build</option>
+                    <option>Red-Team Review</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+                <label>
+                  Budget range
+                  <select name="budget">
+                    <option>Below $500</option>
+                    <option>$500 - $2,000</option>
+                    <option>$2,000 - $10,000</option>
+                    <option>$10,000+</option>
+                  </select>
+                </label>
+              </div>
+
+              <label>
+                Project brief
+                <textarea name="message" placeholder="Tell me about the system, goal, timeline, or challenge." required></textarea>
+              </label>
+
+              <div class="form-actions">
+                <button class="button primary" type="submit">Send signal</button>
+                <span id="successMessage" class="success">Message prepared successfully.</span>
+              </div>
+            </form>
           </div>
         </div>
       </section>
@@ -494,6 +599,27 @@
         angle += 0.18;
         if (ring) ring.style.transform = `rotate(${28 + angle}deg)`;
       }, 22);
+
+      const form = document.getElementById('contactForm');
+      const successMessage = document.getElementById('successMessage');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const name = formData.get('name') || 'Friend';
+        const email = formData.get('email') || 'hello@alieneventhorizon.com';
+        const message = formData.get('message') || '';
+
+        const subject = encodeURIComponent('Alien Event Horizon: New Project Inquiry');
+        const body = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\n\nProject Brief:\n${message}`
+        );
+
+        window.location.href = `mailto:hello@alieneventhorizon.com?subject=${subject}&body=${body}`;
+        successMessage.classList.add('show');
+        form.reset();
+      });
     </script>
   </body>
 </html>
